@@ -1,10 +1,9 @@
-﻿using LibraryAssessmentBackend.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Hosting;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Models
 {
     public class Book
     {
@@ -18,7 +17,7 @@ namespace LibraryAssessmentBackend.Data
         public string ISBN { get; set; }
         public int PageCount { get; set; }
         public bool IsCheckedOut { get; set; }
-        public String Description { get; set; }
+        public string Description { get; set; }
         public ICollection<BookReview> Reviews { get; } = new List<BookReview>();
         public List<Checkout> Checkouts { get; } = new List<Checkout>();
         [NotMapped]

@@ -1,4 +1,4 @@
-﻿namespace LibraryAssessmentBackend.Data
+﻿namespace LibraryAssessmentBackend.Models
 {
     public enum LibraryRole
     {

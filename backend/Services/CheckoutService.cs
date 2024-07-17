@@ -1,11 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibraryAssessmentBackend.Data.Repositories;
+using LibraryAssessmentBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Services
 {
     public class CheckoutService
     {
         private readonly CheckoutRepository _checkoutRepo;
-        public CheckoutService(CheckoutRepository checkoutRepo) {
+        public CheckoutService(CheckoutRepository checkoutRepo)
+        {
             _checkoutRepo = checkoutRepo;
         }
 

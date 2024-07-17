@@ -1,14 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibraryAssessmentBackend.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Linq;
 using System.Net;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Data.Repositories
 {
     public class BookRepository
     {
         private readonly DataContext _dbContext;
-        public BookRepository(DataContext dbContext) { 
+        public BookRepository(DataContext dbContext)
+        {
             _dbContext = dbContext;
         }
 
@@ -150,7 +152,7 @@ namespace LibraryAssessmentBackend.Data
 
         public async Task<int> CheckoutBook(int bookId, string userId)
         {
-            var checkout = new Checkout {BookId = bookId, UserId = userId, StartDate = DateTime.Now };
+            var checkout = new Checkout { BookId = bookId, UserId = userId, StartDate = DateTime.Now };
             _dbContext.Checkouts.Add(checkout);
             return await _dbContext.SaveChangesAsync();
         }

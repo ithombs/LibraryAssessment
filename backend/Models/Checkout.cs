@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Models
 {
     public class Checkout
     {

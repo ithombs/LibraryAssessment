@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LibraryAssessmentBackend.Data;
 using Microsoft.AspNetCore.Authorization;
+using LibraryAssessmentBackend.Models;
 
 namespace LibraryAssessmentBackend.Controllers
 {
@@ -31,6 +32,7 @@ namespace LibraryAssessmentBackend.Controllers
 
         // GET: api/BookReviews/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<List<BookReview>>> GetBookReviews(int id)
         {
             var bookReview = await _context.BookReviews.Where(e => e.BookId == id).ToListAsync();

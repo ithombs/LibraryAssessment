@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibraryAssessmentBackend.Data;
+using LibraryAssessmentBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Services
 {
     public class UserService
     {

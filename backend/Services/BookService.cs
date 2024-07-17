@@ -1,11 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibraryAssessmentBackend.Data.Repositories;
+using LibraryAssessmentBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Services
 {
     public class BookService
     {
         private readonly BookRepository _bookRepo;
-        public BookService(BookRepository bookRepo) {
+        public BookService(BookRepository bookRepo)
+        {
             _bookRepo = bookRepo;
         }
 

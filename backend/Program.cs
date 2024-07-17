@@ -7,6 +7,9 @@ using System.Text;
 using LibraryAssessmentBackend.Controllers;
 using Bogus;
 using System.Text.Json.Serialization;
+using LibraryAssessmentBackend.Models;
+using LibraryAssessmentBackend.Data.Repositories;
+using LibraryAssessmentBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

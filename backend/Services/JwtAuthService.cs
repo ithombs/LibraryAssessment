@@ -1,9 +1,10 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using LibraryAssessmentBackend.Models;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Services
 {
     public class JwtAuthService
     {

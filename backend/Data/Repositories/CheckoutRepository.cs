@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibraryAssessmentBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Data.Repositories
 {
     public class CheckoutRepository
     {

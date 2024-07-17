@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using LibraryAssessmentBackend.Data;
 using Microsoft.AspNetCore.Authorization;
+using LibraryAssessmentBackend.Models;
+using LibraryAssessmentBackend.Services;
 
 namespace LibraryAssessmentBackend.Controllers
 {

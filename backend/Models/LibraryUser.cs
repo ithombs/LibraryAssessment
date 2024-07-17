@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Client;
 using System.Text.Json.Serialization;
 
-namespace LibraryAssessmentBackend.Data
+namespace LibraryAssessmentBackend.Models
 {
     public class LibraryUser : IdentityUser
     {

@@ -73,7 +73,7 @@ namespace LibraryAssessmentBackend.Controllers
 
             try
             {
-                _bookService.UpdateBook(book);
+                await _bookService.UpdateBook(book);
             }
             catch (DbUpdateConcurrencyException)
             {

@@ -16,6 +16,9 @@ namespace LibraryAssessmentBackend.Controllers
     [Authorize]
     public class BookReviewsController : ControllerBase
     {
+        /*
+         * NOTE: I omitted the repository/service layers here and left everything mostly as the defaults for sake of time
+         */
         private readonly DataContext _context;
 
         public BookReviewsController(DataContext context)

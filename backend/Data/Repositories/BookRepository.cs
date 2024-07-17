@@ -16,6 +16,7 @@ namespace LibraryAssessmentBackend.Data.Repositories
 
         public async Task<List<Book>> GetFeaturedBooks()
         {
+            //NOTE: This won't hold up under a larger dataset, but random is random.
             var randBooks = await _dbContext.Books.OrderBy(b => Guid.NewGuid()).Take(5).ToListAsync();
             return randBooks;
         }
@@ -80,8 +81,6 @@ namespace LibraryAssessmentBackend.Data.Repositories
         {
             var books = GetBooksWithRating();
             return await books.ToListAsync();
-
-            //return await _dbContext.Books.ToListAsync();
         }
 
         public async Task<Book?> GetBookByBookId(int bookId)
@@ -105,7 +104,6 @@ namespace LibraryAssessmentBackend.Data.Repositories
 
                    }).FirstOrDefaultAsync();
             return await book;
-            //return await _dbContext.Books.FindAsync(bookId);
         }
 
         public async Task<List<BookReview>> GetReviewsByBookId(int bookId)

@@ -1,0 +1,23 @@
+<div class="container" style="width: 300px;">
+    <form [formGroup]="loginForm">
+        <div class="login-error">
+            {{loginForm.getError("invalidLogin")}}
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input placeholder="Email address" class="form-control" id="email" type="text" formControlName="email">
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input placeholder="Password" class="form-control" id="password" type="text" formControlName="password">
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <button (click)="login2()" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <a [routerLink]="['/register']">Register</a>
+            </div>
+        </div>    
+    </form>
+  </div>

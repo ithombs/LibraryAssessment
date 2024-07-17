@@ -1,0 +1,35 @@
+<nav class="navbar sticky-top navbar-expand-lg bg-light mb-2">
+    <div class="container-fluid">
+      <a [routerLink]="['/']" class="navbar-brand" href="#">[Library App]</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!--
+          <li class="nav-item">
+            <a [routerLink]="['/drag']" class="nav-link active" aria-current="page" href="#">Drag/Drop Test</a>
+          </li>
+          -->
+          <li class="nav-item ms-3">
+            <a [routerLink]="['/bookSearch']" class="nav-link active" aria-current="page" href="#">Book Search</a>
+          </li>
+          <li *ngIf="this.loginService.isUserAuthenticated()" class="nav-item ms-3">
+            <a [routerLink]="['/userCheckouts']" class="nav-link active" aria-current="page" href="#">Your Books</a>
+          </li>
+          <li *ngIf="this.loginService.isUserLibrarian()" class="nav-item ms-3">
+            <a [routerLink]="['/adminCheckouts']" class="nav-link active" aria-current="page" href="#">Checked Out Books</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <ng-template [ngIf]="this.loginService.isUserAuthenticated()" [ngIfElse]="loggedOut">
+            <span class="me-2">{{getUsername()}},</span>
+            <span><a (click)="logOut()" href="#">Log Out</a></span>
+          </ng-template>
+          <ng-template #loggedOut>
+            <a [routerLink]="['/login']">Login</a>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </nav>

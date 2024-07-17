@@ -1,0 +1,42 @@
+.book-search-container{
+    max-height:700px;
+    max-width: 1100px;
+    min-height: 100px;
+    overflow: auto;
+    background-color: #fdfbff;
+}
+.book-search-container a{
+  color: black;
+}
+
+.full-width {
+    width: 100%;
+    min-width:210px;
+}
+
+.no-data{
+  text-align: center;
+  padding:60px;
+  font-size: larger;
+}
+
+select{
+    border: solid 1px black;
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 100%;
+  min-width:210px;
+}
+.filter-button {
+  padding: 10px;
+  border: solid 1px Blue;
+  background: Blue;
+  color: white;
+  border-radius: 8px;
+}
+
+table{
+    width:100%;
+}

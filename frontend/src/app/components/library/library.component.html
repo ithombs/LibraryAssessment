@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center mb-3">Featured Books</h2>
+    </div>
+  </div>
+<section class="row">
+    <form>
+      <!--<input [(ngModel)]="titleFilter" [ngModelOptions]="{standalone: true}" placeholder="Enter a title here..." (input)="onSearch()" type="text" />-->
+      <input [(ngModel)]="titleFilter" [ngModelOptions]="{standalone: true}" placeholder="Enter a title here..."  type="text" />
+      <input [(ngModel)]="authorFilter" [ngModelOptions]="{standalone: true}" placeholder="Enter author's name here..."  type="text" />
+      <!--<input [(ngModel)]="isCheckedOutFilter" [ngModelOptions]="{standalone: true}" placeholder="Enter availability here..."  type="text" />-->
+      <select [(ngModel)]="isCheckedOutFilter" [ngModelOptions]="{standalone: true}" placeholder="Enter availability here...">
+        <option value="" selected>Show All</option>
+        <option value=true>Checked Out</option>
+        <option value=false>Available</option>
+      </select>
+      <button class="primary" type="button" (click)="filterFeaturedBooks()">Search</button>
+    </form>
+  </section>
+  <section class="row text-center mt-2">
+    <div class="col mx-auto d-block">
+    <label for="sort">Sort By</label>
+    <select name="sort" class="mx-auto d-block" [(ngModel)]="featuredBookSort" [ngModelOptions]="{standalone: true}">
+      <option value="title" selected>Title</option>
+      <option value="author">Author</option>
+      <option value="checkedOut">Checked Out</option>
+    </select>
+  </div>
+  </section>
+  <section class="results">
+    <app-book *ngFor="let book of filteredFeaturedBooks" [book]="book"></app-book>
+  </section>
+</div>

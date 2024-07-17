@@ -1,0 +1,35 @@
+<div class="container" style="width: 300px;">
+    <form [formGroup]="registerForm" (submit)="register()">
+        <div *ngIf="registerForm.hasError('confirmPassword')" class="cross-validation-error-message alert alert-danger">
+            Password and confirmation password must match!
+        </div>
+        <div *ngIf="registerForm.get('email')?.invalid" class="cross-validation-error-message alert alert-danger">
+            Must be a valid email!
+        </div>
+        <div *ngIf="registerForm.getError('serverError')" class="cross-validation-error-message alert alert-danger">
+            {{registerForm.getError('serverError')}}
+        </div>
+
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input placeholder="Email address" class="form-control" id="email" type="email" formControlName="email">
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input placeholder="Password" class="form-control" id="password" type="text" formControlName="password">
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input placeholder="Confirm Password" class="form-control" id="password" type="text" formControlName="confirmPassword">
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Register</button>
+            </div>
+            <div class="col">
+                <select class="float-end" id="role" formControlName="role">
+                    <option value="Librarian">Librarian</option>
+                    <option value="Customer">Customer</option>
+                </select>
+                <label class="float-end me-2" for="role">Role: </label>
+            </div>
+        </div>
+    </form>
+  </div>

@@ -1,0 +1,105 @@
+<ng-container *ngIf="book2$ | async as book">
+<div class="container card shadow" style="width:75%;" >
+    <div class="row mt-3">
+        <div class="col-3 mt-1">
+            <img class="coverImage mx-auto d-block" src="assets/{{book?.coverImage}}" alt="Cover art for {{ book?.title }}"/>
+            <ng-template [ngIf]="isUserAuthenticated()">
+                <button class="mt-1 mx-auto d-block" mat-raised-button [matMenuTriggerFor]="menu">Actions</button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item *ngIf=" isUserLibrarian()" class="" (click)="openDialog(book)" MAT="book">Edit Book</button>
+                    <button mat-menu-item *ngIf=" isUserLibrarian()" class="" (click)="openDeleteDialog(book)" MAT="book">Delete Book</button>
+                    <button mat-menu-item *ngIf="!book.isCheckedOut" class="" (click)="checkoutBook(book)" MAT="book">Checkout</button>
+                    <button mat-menu-item *ngIf="book.isCheckedOut && isUserLibrarian()" class="" (click)="returnBook(book)" MAT="book">Mark Returned</button>
+                </mat-menu>
+                <!--
+                <div class="row mt-2">
+                    <button *ngIf=" isUserLibrarian()" class="col-4 ms-4" style="background-color: blue; color: white;" mat-raised-button (click)="openDialog(book)" MAT="book">Edit Book</button>
+                </div>
+                <div class="row mt-2">
+                    <button *ngIf=" isUserLibrarian()" class="col ms-4" style="background-color: red; color: white" mat-raised-button (click)="openDeleteDialog(book)" MAT="book">Delete Book</button>
+
+                </div>
+                <div class="row mt-2">
+                    <button *ngIf="!book.isCheckedOut" class="col ms-4" style="background-color: green; color: white;" mat-raised-button (click)="checkoutBook(book)" MAT="book">Checkout</button>
+                    <button *ngIf="book.isCheckedOut && isUserLibrarian()" class="col ms-4" style="background-color: green; color: white;" mat-raised-button (click)="returnBook(book)" MAT="book">Mark Returned</button>
+                </div>
+                -->
+            </ng-template>
+        </div>
+        <div class="col-md">
+            <table>
+                <tr>
+                    <td class="fw-bold text-end">Title:</td>
+                    <td>{{book?.title}}</td>
+                </tr>
+                <tr>
+                    <td class=" fw-bold text-end">Publication Date:</td>
+                    <td>{{book?.publicationDate}}</td>
+                </tr>
+                <tr>
+                    <td class=" fw-bold text-end">Author:</td>
+                    <td>{{ book?.author }}</td>
+                </tr>
+                <tr>
+                    <td class=" fw-bold text-end">Publisher:</td>
+                    <td>{{ book?.publisher }}</td>
+                </tr>
+                <tr>
+                    <td class="fw-bold text-end">Checked Out:</td>
+                    <td *ngIf="book?.isCheckedOut">Yes</td>
+                    <td *ngIf="!book?.isCheckedOut">No</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <table>
+                <tr>
+                    <td class=" fw-bold text-end">Category:</td>
+                    <td>{{ book?.category }}</td>
+                </tr>
+                <tr>
+                    <td class=" fw-bold text-end">Page Count:</td>
+                    <td>{{ book?.pageCount }}</td>
+                </tr>
+                <tr>
+                    <td class=" fw-bold text-end">ISBN:</td>
+                    <td>{{ book?.isbn }}</td>
+                </tr>
+                <tr>
+                    <td class="fw-bold text-end">Average Rating:</td>
+                    <td>{{book?.averageRating?.toFixed(1)}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-3 mb-2">
+        <div class="col"><span class="fw-bold">Description:</span> {{book?.description}}</div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        
+    </div>
+</div>
+<div class="container mt-5" style="width: 75%; max-height: 500px; overflow-y: auto;">
+    <div class="row">
+        <h3 class="col-3">Reviews</h3>
+        <div class="col">
+            <ng-template [ngIf]="isUserAuthenticated()">
+                <button class="ms-4 mb-2 float-end" mat-raised-button (click)="openReviewDialog(book)">Review</button>
+            </ng-template>
+        </div>
+    </div>
+    <div class="row">
+        <ng-container *ngIf="bookReviews$ | async as bookReviews">
+            <ng-template [ngIf]="bookReviews.length > 0" [ngIfElse]="noReviews">
+                <app-book-review *ngFor="let bookReview of bookReviews" [bookReview]="bookReview"></app-book-review>
+            </ng-template>
+            <ng-template #noReviews>
+                <div class="col">No reviews yet</div>
+            </ng-template>
+        </ng-container>
+    </div>
+</div>
+</ng-container>
+

@@ -1,0 +1,38 @@
+.book {
+    background: rgba(214, 214, 214, 0.432);
+    border-radius: 30px;
+    padding-bottom: 30px;
+    height:400px;
+    width:350px;
+  }
+  .book-heading {
+    color: rgb(0, 0, 19);
+    padding: 10px 20px 0 20px;
+  }
+  .cover-photo {
+    object-fit: cover;
+  }
+  .book-info{
+    padding-left: 20px;
+  }
+.book-description{
+  max-height: 50px;
+  overflow: auto;
+}
+
+.details-link{
+    margin-top:15px;
+}
+  section.book a {
+    padding-left: 20px;
+    text-decoration: none;
+    color: blue;
+  }
+  section.book a::after {
+    content: "\203A";
+    margin-left: 5px;
+  }
+
+
+
+  

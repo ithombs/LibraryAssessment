@@ -1,0 +1,30 @@
+<div class="text-center">
+    <h2 mat-dialog-title>Create Review</h2>
+</div>
+
+<div class="book-edit-dialog">
+<mat-dialog-content class="book-edit-dialog">
+  <form [formGroup]="createReviewForm" class="edit-book-form">
+    <table class="mt-2 mb-2">
+        <tr>
+            <td>Rating:</td>
+            <td>
+                <mat-slider min="1" max="5" step="0.5" showTickMarks discrete [displayWith]="formatLabel">
+                    <input matSliderThumb value="" formControlName="rating">
+                </mat-slider>
+            </td>
+        </tr>
+    </table>
+    <p>
+        <mat-form-field appearance="fill" class="full-width description-edit">
+            <mat-label>Review</mat-label>
+            <textarea rows="8" class="description-edit" style="height:100%; resize: none;" formControlName="review" matInput value=""></textarea>
+        </mat-form-field>
+    </p>
+</form>
+</mat-dialog-content>
+</div>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="saveChanges()">Ok</button>
+</mat-dialog-actions>

@@ -1,0 +1,25 @@
+<section class="book text-center">
+  <div class="">
+    <img
+      class="cover-photo"
+      src="assets/{{book.coverImage}}"
+      alt="Cover art of {{ book.title }}"
+    />
+    <h2 class="book-heading">{{ book.title }}</h2>
+
+    <span   class="book-info">Author: {{ book.author }}</span><br/>
+
+    <button class="mx-auto" matTooltip="" matTooltipPosition="above"  mat-button (click)="openDescriptionDialog()"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        Description
+    </button>
+    <br>
+
+    <span syle="display:none;"  #tooltip="matTooltip"
+        matTooltip="{{book.description}}"
+        matTooltipPosition="right"></span>
+    <span class="book-info">Average User Rating: {{ book.averageRating.toFixed(1) }}</span><br/>
+
+    <p class="details-link"><a [routerLink]="['/bookDetails', book.id]">Book Details</a></p>
+  </div>
+</section>

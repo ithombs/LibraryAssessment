@@ -1,0 +1,77 @@
+<h2 mat-dialog-title>{{dialogTitle}}</h2>
+<div class="book-edit-dialog" style="">
+<mat-dialog-content class="book-edit-dialog">
+  <form class="edit-book-form" [formGroup]="editBookForm">
+    <mat-form-field class="full-width">
+        <mat-label>Title</mat-label>
+        <input formControlName="title" matInput value="">
+        <mat-error *ngIf="editBookForm.get('title')?.invalid"></mat-error>
+    </mat-form-field>
+    <p>
+        <mat-form-field class="full-width">
+            <mat-label>Author</mat-label>
+            <input type="text" formControlName="author" matInput value="">
+            <mat-error *ngIf="editBookForm.get('author')?.invalid"></mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="full-width">
+            <mat-label>Publisher</mat-label>
+            <input type="text" formControlName="publisher" matInput value="">
+            <mat-error *ngIf="editBookForm.get('publisher')?.invalid"></mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="full-width">
+            <mat-label>Publication Date</mat-label>
+            <input readonly  formControlName="publicationDate" [matDatepicker]="picker" matInput value="">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="editBookForm.get('publicationDate')?.invalid"></mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="full-width">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category" value="">
+                @for (category of bookCategorys; track category){
+                    <mat-option [value]="category">{{category}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="full-width">
+            <mat-label>Page Count</mat-label>
+            <input type="number" formControlName="pageCount" matInput value="">
+            <mat-error *ngIf="editBookForm.get('pageCount')?.invalid"></mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field class="full-width">
+            <mat-label>ISBN</mat-label>
+            <input type="text" formControlName="isbn" matInput value="">
+            <mat-error *ngIf="editBookForm.get('isbn')?.invalid"></mat-error>
+        </mat-form-field>
+    </p>
+    <!--
+    <p>
+        <mat-label>Checked Out</mat-label>
+        <mat-checkbox formControlName="isCheckedOut" [checked]=""></mat-checkbox>
+    </p>
+    -->
+    <p>
+        <mat-form-field appearance="fill" class="full-width description-edit">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" rows="8" class="description-edit" style="height:100%" matInput value=""></textarea>
+            <mat-error *ngIf="editBookForm.get('description')?.invalid"></mat-error>
+        </mat-form-field>
+    </p>
+</form>
+</mat-dialog-content>
+</div>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button cdkFocusInitial (click)="saveChanges()">Ok</button>
+</mat-dialog-actions>

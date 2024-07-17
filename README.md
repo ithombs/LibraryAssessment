@@ -16,4 +16,4 @@ There is nothing unusual to point out for the frontend Angular project in regard
 <br/><br/>
 
 ## Backend - ASP.NET Core 8 Web API
-Also nothing unusual to point out in regards to running the backend ASP.NET project.
+Also nothing unusual to point out in regards to running the backend ASP.NET project. I omitted the repository/service paradigm for BookReviews in favor of time.
